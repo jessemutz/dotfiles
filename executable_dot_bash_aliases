@@ -1,0 +1,237 @@
+# * Set colors for pompt
+
+RED='\033[0;31m' # Red color
+YEL='\033[0;33m' # Yellow color
+GRN='\033[0;32m' # Green color
+GRY='\033[0;37m' # Green color
+RDBG='\033[0;41m' # RedBG
+GRBG='\033[0;42m' # RedBG
+NC='\033[0m' # No Color
+
+#* System
+alias aptup='sudo apt update && sudo apt upgrade'
+
+#* Git
+alias o='open .'
+alias ..='cd ../'
+alias ..2='cd ../../'
+alias ..3='cd ../../../'
+alias ..4='cd ../../../../'
+
+#* Cheat.sh - cheat sheet
+how () {
+  curl cheat.sh/"$1"
+}
+
+#* Editor
+e () {
+  code "$1" .
+}
+
+export EDITOR=vim
+
+#* Apache
+alias aprs='sudo systemctl restart apache2'
+alias aprl='sudo systemctl reload apache2'
+alias hosts='code /etc/hosts'
+
+alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
+
+#* Git Aliases and shortcuts.
+alias gacss='git add css/; git add scss/'
+alias gad='git add -p && git status -s'
+alias gcm='git commit -m'
+alias gp='git pull'
+alias gs='git status'
+alias gsp='git stash pop'
+alias gt='git describe --exact-match --tags $(git log -n1 --pretty='%h')'
+alias gsync='git pull && git push'
+alias stash='git stash'
+alias gl='git log --graph --oneline --all'
+alias gpom='git pull origin master'
+alias gpod='git pull origin development'
+alias gpop='git pull origin production'
+
+
+# Drupal 8
+alias cr='drush cr'
+alias sex='drush cex'
+alias sexy='drush cex -y'
+alias cim='drush cim'
+alias l='lando'
+
+# Harvest
+alias h='hrvst'
+alias hls='echo " hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,spent_date,hours,client.name,task.name\n" && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,spent_date,hours,client.name,task.name'
+alias hlsn="echo ' hrvst time-entries list -f=\$(date --date=\"yesterday\" +\"%Y-%m-%d\") -o=\$(date +\"%Y-%m-%d\") -l=id,client.name,notes\n' && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,client.name,notes"
+alias hlsj='echo "hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=client.name,notes,spent_date,hours,rounded_hours,is_running --output=json" && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=client.name,notes,spent_date,hours,rounded_hours,is_running --output=json'
+alias 24h='-f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d")'
+
+# Add a note to the running timer
+function hn () {
+  hrvst note -n="$1"
+}
+
+# Restart a given timer
+function hrs () {
+  hrvst time-entries restart -t=$1
+}
+
+#Replace a note with the given param
+function hup () {
+  echo "Updating entry with id $1 and note $2";
+  hrvst time-entries update -t="$1" -n="$2";
+}
+
+function gcmh () {
+  echo "Commiting to git...";
+  git commit -m "$1";
+  echo "Updating harvest time entry...";
+  hrvst note -n="$1";
+}
+
+# Tar Balls
+tarball () {
+  tar -czvf "$1".tar.gz "$1"
+}
+untar () {
+  tar -xzvf "$1"
+}
+viewtar () {
+  tar -tzvf "$1"
+}
+
+drv () {
+  echo 'drush sset environment_indicator.current_release "Version:' "$1"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
+}
+
+# dr () {
+#   echo 'drush sset environment_indicator.current_release "Version:' $(git describe --exact-match --tags $(git log -n1 --pretty='%h')
+# )' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
+# }
+
+
+drtv () {
+  echo "Setting git tag...\n"
+
+  eval git tag 'v'$1;
+
+  echo "Done.\n"
+
+  echo "Grabbing git information...\n"
+  # echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
+  
+  # This sets the drush command
+  # version=`echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'`;
+    # version=`echo 'sset environment_indicator.current_release "Version:' "$1"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'`;
+    # drupalVersion=`lando drush status | grep "Drupal version" | sed -e "s/\s\{3,\}//g" | rev | cut -b1-5 | rev`;
+    # gitTag=`git describe --exact-match --tags $(git log -n1 --pretty='%h')`;
+    gitTag=`git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1`;
+    drupalVersion=`lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1`
+    version=`echo 'sset environment_indicator.current_release "d'$drupalVersion' | '$gitTag' | #'$(git log -n1 --format="%h | %aD")'"'`;
+
+  # This removes the last 10 characters, being the timezone and seconds
+  cleanVersion=${version:0:${#version}-10};
+  # This prints the clean command with a closing double quote
+  echo $cleanVersion'"';
+  echo "\nRunning command on local environment..."
+  eval lando drush $cleanVersion'"';
+  echo "\nRunning command on Pantheon. Select DEV or cancel. \n"
+  eval trd $cleanVersion'"'
+}
+
+drt () {
+  echo "Setting git tag...\n"
+
+  git tag 'v'$1;
+
+  echo "Done.\n"
+
+  echo "Grabbing git information...\n"
+  # echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
+  
+  # This sets the drush command
+  # version=`echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'`;
+    # version=`echo 'sset environment_indicator.current_release "Version:' "$1"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'`;
+    # drupalVersion=`lando drush status | grep "Drupal version" | sed -e "s/\s\{3,\}//g" | rev | cut -b1-5 | rev`;
+    # gitTag=`git describe --exact-match --tags $(git log -n1 --pretty='%h') | cut -c2-`;
+    gitTag=`git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1`;
+    drupalVersion=`lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1`
+    version=`echo 'sset environment_indicator.current_release "'$drupalVersion'-'$gitTag' | #'$(git log -n1 --format="%h | %aD")'"'`;
+
+  # This removes the last 10 characters, being the timezone and seconds
+  cleanVersion=${version:0:${#version}-10};
+  # This prints the clean command with a closing double quote
+  echo $cleanVersion'"';
+  echo "\nRunning command on local environment..."
+  eval lando drush $cleanVersion'"';
+  echo "\nRunning command on Pantheon. Select DEV or cancel. \n"
+  eval trd $cleanVersion'"'
+}
+ 
+trd () {
+  if [ -v SITE ]; then
+  echo "${GRBG} $SITE ${NC}: select Pantheon server:"
+    select env in dev test git-branch LIVE Quit
+    case $env in
+    "dev"|"test"|"LIVE")
+      echo "Running ${GRN}'drush $@'${NC} on ${YEL}$SITE.$env${NC}"
+      terminus remote:drush $SITE.$env -- $@
+      break
+    ;;
+    "Quit")
+      echo "k, forget it."
+      break
+    ;;
+    git-branch)
+      terminus remote:drush $SITE.$(git branch --show-current) -- $@
+      break
+    ;;
+    *)
+      echo "Pick a valid option."
+      break
+    ;;
+    esac
+  else
+    echo "\$SITE not set. Use: 'export SITE=site-name-here'"
+  fi
+}
+
+
+
+#* SSH Into Digital Ocean
+dev=162.243.164.71;
+prod=68.183.115.122;
+alias sshprod='ssh root@$prod'
+alias sshdev='ssh root@$dev'
+
+#* Copy Digital Ocean Database into local db-dump folder
+proddump () {
+  scp root@$prod:/data/db-dumps/${1} /home/jesse/db-dumps/.;
+}
+
+proddump () {
+  scp root@$dev:/data/db-dumps/${1} /home/jesse/db-dumps/.;
+}
+
+
+# Gulp
+alias gw='gulp watch'
+
+# Docker exec
+dex () {
+  docker exec -ti "$1" /bin/bash
+}
+
+alias chownsites='sudo chown -R jesse:jesse /home/jesse/Sites';
+
+# Docker exec
+crd () {
+  for var in "$@"
+  do
+    composer require drupal/"$var"
+  done
+}
+
+# alias python='python3'
+alias pip='pip3'
