@@ -82,6 +82,9 @@ plugins=(
   zsh-autosuggestions
 )
 
+# Move superfluous .zcompdump files out of $HOME
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -135,5 +138,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(atuin init zsh)"
 eval "$(atuin init zsh)"
