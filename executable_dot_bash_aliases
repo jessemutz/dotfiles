@@ -49,8 +49,6 @@ alias gsync='git pull && git push'
 alias stash='git stash'
 alias gl='git log --graph --oneline --all'
 alias gpom='git pull origin master'
-alias gpod='git pull origin development'
-alias gpop='git pull origin production'
 
 
 # Drupal 8
@@ -62,10 +60,10 @@ alias l='lando'
 
 # Harvest
 alias h='hrvst'
-alias hls='echo " hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,spent_date,hours,client.name,task.name\n" && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,spent_date,hours,client.name,task.name'
-alias hlsn="echo ' hrvst time-entries list -f=\$(date --date=\"yesterday\" +\"%Y-%m-%d\") -o=\$(date +\"%Y-%m-%d\") -l=id,client.name,notes\n' && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,client.name,notes"
-alias hlsj='echo "hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=client.name,notes,spent_date,hours,rounded_hours,is_running --output=json" && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=client.name,notes,spent_date,hours,rounded_hours,is_running --output=json'
-alias 24h='-f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d")'
+# alias hls='echo " hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,spent_date,hours,client.name,task.name\n" && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,spent_date,hours,client.name,task.name'
+# alias hlsn="echo ' hrvst time-entries list -f=\$(date --date=\"yesterday\" +\"%Y-%m-%d\") -o=\$(date +\"%Y-%m-%d\") -l=id,client.name,notes\n' && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=id,client.name,notes"
+# alias hlsj='echo "hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=client.name,notes,spent_date,hours,rounded_hours,is_running --output=json" && hrvst time-entries list -f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d") -l=client.name,notes,spent_date,hours,rounded_hours,is_running --output=json'
+# alias 24h='-f=$(date --date="yesterday" +"%Y-%m-%d") -o=$(date +"%Y-%m-%d")'
 
 # Add a note to the running timer
 function hn () {
@@ -207,11 +205,11 @@ alias sshdev='ssh root@$dev'
 
 #* Copy Digital Ocean Database into local db-dump folder
 proddump () {
-  scp root@$prod:/data/db-dumps/${1} /home/jesse/db-dumps/.;
+  scp root@$prod:/data/db-dumps/${1} $HOME/db-dumps/.;
 }
 
 proddump () {
-  scp root@$dev:/data/db-dumps/${1} /home/jesse/db-dumps/.;
+  scp root@$dev:/data/db-dumps/${1} $HOME/db-dumps/.;
 }
 
 
@@ -223,7 +221,7 @@ dex () {
   docker exec -ti "$1" /bin/bash
 }
 
-alias chownsites='sudo chown -R jesse:jesse /home/jesse/Sites';
+alias chownsites='sudo chown -R jesse:jesse $HOME/Sites';
 
 # Docker exec
 crd () {
