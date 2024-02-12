@@ -1,12 +1,13 @@
 # * Set colors for pompt
 
-RED='\033[0;31m' # Red color
-YEL='\033[0;33m' # Yellow color
-GRN='\033[0;32m' # Green color
-GRY='\033[0;37m' # Green color
-RDBG='\033[0;41m' # RedBG
-GRBG='\033[0;42m' # RedBG
-NC='\033[0m' # No Color
+RED='\033[0;31m'   # Red color
+YEL='\033[0;33m'   # Yellow color
+GRN='\033[0;32m'   # Green color
+GRY='\033[0;37m'   # Green color
+RDBG='\033[0;41m'  # Red BG
+GRBG='\033[0;42m'  # Green BG
+YELBG='\033[0;43m' # Yellow BG
+NC='\033[0m'       # No Color
 
 #* System
 alias aptup='sudo apt update && sudo apt upgrade'
@@ -28,11 +29,10 @@ e () {
   code "$1" .
 }
 
+alias brewup='brew update && brew upgrade'
+
 export EDITOR=vim
 
-#* Apache
-alias aprs='sudo systemctl restart apache2'
-alias aprl='sudo systemctl reload apache2'
 alias hosts='code /etc/hosts'
 
 alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
@@ -173,7 +173,11 @@ trd () {
     select env in dev test git-branch live Quit
     case $env in
     "dev"|"test"|"live")
+<<<<<<< HEAD
       echo "Running ${GRN}'drush $@'${NC} on ${YEL}$SITE.$env${NC}"
+=======
+      echo "Running ${GRN}'drush $@'${NC} on ${YEL}$SITE${NC}.${YELBG}$env${NC}"
+>>>>>>> a4ce386b62e0676da7536c35b5a0598791c99d8f
       terminus remote:drush $SITE.$env -- $@
       break
     ;;
