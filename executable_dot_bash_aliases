@@ -170,9 +170,9 @@ drt () {
 trd () {
   if [ -v SITE ]; then
   echo "${GRBG} $SITE ${NC}: select Pantheon server:"
-    select env in dev test git-branch LIVE Quit
+    select env in dev test git-branch live Quit
     case $env in
-    "dev"|"test"|"LIVE")
+    "dev"|"test"|"live")
       echo "Running ${GRN}'drush $@'${NC} on ${YEL}$SITE${NC}.${YELBG}$env${NC}"
       terminus remote:drush $SITE.$env -- $@
       break
