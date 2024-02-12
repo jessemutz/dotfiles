@@ -28,11 +28,10 @@ e () {
   code "$1" .
 }
 
+alias brewup='brew update && brew upgrade'
+
 export EDITOR=vim
 
-#* Apache
-alias aprs='sudo systemctl restart apache2'
-alias aprl='sudo systemctl reload apache2'
 alias hosts='code /etc/hosts'
 
 alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
