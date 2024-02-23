@@ -32,20 +32,22 @@ Below are tools and software needed to get a new machine up and running.
   - Open Weather
   - Time++
   - Ubuntu Appindicators
-- Solaar - LG Mouse to work with Linux better
-- Stacer - system monitoring
 - input-remapper (to remap mouse keys)
   - `sudo apt install input-remapper`
+- Solaar - LG Mouse to work with Linux better
+- Stacer - system monitoring
+- [update-alternatives](https://man7.org/linux/man-pages/man1/update-alternatives.1.html) - I use to switch PHP versions, but can also be used
+  - e.g. `sudo update-alternatives --set php /usr/bin/php8.1`
 
 ### Command Line Tools
 - git
-- youtube-dl
-- vim
-- screenfetch
-- zsh
+- lando (for local Drupal & Wordpress site containers)
 - [nvm (install via github)](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
   - after install, run `nvm install 14 && nvm install 16 && nvm install 18`
-- lando (for local Drupal & Wordpress site containers)
+- screenfetch
+- vim
+- youtube-dl
+- zsh
 
 ## Linux Commands
 Install various plugins
@@ -71,6 +73,8 @@ sudo apt update
 sudo apt upgrade
 sudo apt install php7.4
 sudo apt install php7.4-{fpm,json,zip,gd,mbstring,curl,xml,bcmath,dom}
+sudo apt install php8.1
+sudo apt install php8.1-{fpm,json,zip,gd,mbstring,curl,xml,bcmath,dom}
 ```
 
 Stop apache so we can use Lando 
