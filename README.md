@@ -40,6 +40,7 @@ Below are tools and software needed to get a new machine up and running.
   - e.g. `sudo update-alternatives --set php /usr/bin/php8.1`
 
 ### Command Line Tools
+- [atuin](https://atuin.sh/) (very cool shell history sync & search)
 - git
 - lando (for local Drupal & Wordpress site containers)
 - [nvm (install via github)](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
