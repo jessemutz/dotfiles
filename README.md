@@ -8,6 +8,8 @@ Below are tools and software needed to get a new machine up and running.
 ## Tools & Software
 - Beekeeper-Studio - Database manager (free version)
 - Bitwarden - Password Manager
+- [Calibre](https://calibre-ebook.com/download) - ebook manager
+- Dropbox
 - [Figma](https://www.figma.com/downloads/)
 - Plex
 - Spotify 
@@ -18,9 +20,30 @@ Below are tools and software needed to get a new machine up and running.
 - Joplin - Notes manager
 - Clickup
 - Google Chrome
+- FileZilla
 - Firefox
   - Install *Gnome Shell Extensions* for Linux tools
 - Private Internet Access VPN
+
+### Command Line Tools
+- [atuin](https://atuin.sh/) (very cool shell history sync & search)
+- git
+- lando (for local Drupal & Wordpress site containers)
+- [nvm (install via github)](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+  - after install, run `nvm install 14 && nvm install 16 && nvm install 18`
+- screenfetch
+- vim
+- youtube-dl
+- zsh
+
+### Mac Specific Tools
+- Affinity Design, Publisher, Photo (Adobe alternatives)
+- Alfred
+- Clip Menu
+- Disk Inventory X
+- [homebrew](https://brew.sh/) - the only thing you need to manage tools & packages on Mac
+- ImageOptim
+- Xcode
 
 ### Linux Specific Tools
 - CopyQ - Clipboard Manger
@@ -38,17 +61,6 @@ Below are tools and software needed to get a new machine up and running.
 - Stacer - system monitoring
 - [update-alternatives](https://man7.org/linux/man-pages/man1/update-alternatives.1.html) - I use to switch PHP versions, but can also be used
   - e.g. `sudo update-alternatives --set php /usr/bin/php8.1`
-
-### Command Line Tools
-- [atuin](https://atuin.sh/) (very cool shell history sync & search)
-- git
-- lando (for local Drupal & Wordpress site containers)
-- [nvm (install via github)](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
-  - after install, run `nvm install 14 && nvm install 16 && nvm install 18`
-- screenfetch
-- vim
-- youtube-dl
-- zsh
 
 ## Linux Commands
 Install various plugins
