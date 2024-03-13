@@ -173,11 +173,7 @@ trd () {
     select env in dev test git-branch live Quit
     case $env in
     "dev"|"test"|"live")
-<<<<<<< HEAD
-      echo "Running ${GRN}'drush $@'${NC} on ${YEL}$SITE.$env${NC}"
-=======
       echo "Running ${GRN}'drush $@'${NC} on ${YEL}$SITE${NC}.${YELBG}$env${NC}"
->>>>>>> a4ce386b62e0676da7536c35b5a0598791c99d8f
       terminus remote:drush $SITE.$env -- $@
       break
     ;;
