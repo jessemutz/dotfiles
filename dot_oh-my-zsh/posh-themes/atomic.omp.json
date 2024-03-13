@@ -5,7 +5,7 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#0074d9",
+          "background": "#001f3f",
           "foreground": "#ffffff",
           "leading_diamond": "\u256d\u2500\ue0b6",
           "style": "diamond",
@@ -20,8 +20,8 @@
           "type": "root"
         },
         {
-          "background": "#FF851B",
-          "foreground": "#111111",
+          "background": "#0074D9",
+          "foreground": "#000000",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "folder_icon": " \uf07b ",
@@ -253,7 +253,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#0074d9",
+          "foreground": "#001f3f",
           "style": "plain",
           "template": "\u2570\u2500",
           "type": "text"
