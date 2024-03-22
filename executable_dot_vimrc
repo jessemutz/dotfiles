@@ -45,6 +45,7 @@ set hlsearch
 " set nomodeline
  
 set relativenumber
+set number
  
 "------------------------------------------------------------
 " Usability options {{{1
