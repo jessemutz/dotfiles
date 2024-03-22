@@ -44,7 +44,6 @@ set hlsearch
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
  
- 
 "------------------------------------------------------------
 " Usability options {{{1
 "
@@ -97,7 +96,8 @@ set cmdheight=2
  
 " Display line numbers on the left
 set number
- 
+set rnu
+
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
  
@@ -134,7 +134,3 @@ set expandtab
 "
 set showmatch
 
-"
-"------------------------------------------------------------
-"
-"
