@@ -44,6 +44,7 @@ set hlsearch
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
  
+set relativenumber
  
 "------------------------------------------------------------
 " Usability options {{{1
