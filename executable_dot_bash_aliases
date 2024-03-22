@@ -31,7 +31,7 @@ e () {
 
 alias brewup='brew update && brew upgrade'
 
-export EDITOR=vim
+export EDITOR=nvim
 
 alias hosts='code /etc/hosts'
 
