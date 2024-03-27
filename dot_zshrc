@@ -66,7 +66,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   command-not-found
-  common-aliases #Collection of useful zsh aliases, not enabled by default since they may change some user defined aliases.
+  # common-aliases #Collection of useful zsh aliases, not enabled by default since they may change some user defined aliases.
   docker # Autocomplete for Docker
   fasd #  Fasd offers quick access to files and directories for POSIX shells.
   emoji-clock
