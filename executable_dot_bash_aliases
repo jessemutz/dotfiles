@@ -50,6 +50,8 @@ alias stash='git stash'
 alias gl='git log --graph --oneline --all'
 alias gpom='git pull origin master'
 
+alias la='colorls -la'
+alias ls='colorls'
 
 # Drupal 8
 alias cr='drush cr'
