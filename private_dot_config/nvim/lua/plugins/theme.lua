@@ -6,8 +6,26 @@ return {
   },
 
   {
+    "EdenEast/nightfox.nvim",
+    name = "nightfox",
+    lazy = false,
+  },
+
+  {
+    "NLKNguyen/papercolor-theme",
+    name = "papercolor",
+    lazy = false,
+  },
+
+  {
     "ellisonleao/gruvbox.nvim",
     name = "gruvbox",
+    lazy = false,
+  },
+
+  {
+    "sainnhe/gruvbox-material",
+    name = "gruvbox-material",
     lazy = false,
   },
 
