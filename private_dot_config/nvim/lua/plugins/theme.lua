@@ -13,7 +13,7 @@ return {
 
   {
     "NLKNguyen/papercolor-theme",
-    name = "papercolor",
+    name = "PaperColor",
     lazy = false,
   },
 
@@ -24,14 +24,8 @@ return {
   },
 
   {
-    "sainnhe/gruvbox-material",
-    name = "gruvbox-material",
-    lazy = false,
-  },
-
-  {
     "folke/tokyonight.nvim",
-    name = "colors_tokyonight",
+    name = "tokyonight",
     lazy = false,
   },
 
@@ -45,7 +39,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = { "rose-pine" },
+      colorscheme = { "PaperColor" },
     },
   },
 }
