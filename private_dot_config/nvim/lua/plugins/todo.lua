@@ -7,6 +7,7 @@ return {
   },
 }
 
+-- Comments examples
 -- TODO: = { icon = " ", color = "info" },
 -- HACK: = { icon = " ", color = "warning" },
 -- WARN: = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
