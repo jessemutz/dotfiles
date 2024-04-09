@@ -3,9 +3,15 @@ Using [Chezmoi](https://www.chezmoi.io) to handle syncing dotfiles across multip
 
 [Chezmoi Quick Start](https://www.chezmoi.io/quick-start/)
 
+You'll need to move any files from `/bin` to your `/usr/local/bin`, like `tmux-session`
+
+`sudo ln s /bin/tmux-session /usr/local/bin`
+
 Below are tools and software needed to get a new machine up and running.
 
 ## Tools & Software
+
+
 - Beekeeper-Studio - Database manager (free version)
 - Bitwarden - Password Manager
 - [Calibre](https://calibre-ebook.com/download) - ebook manager
@@ -94,6 +100,43 @@ Stop apache so we can use Lando
 ```shell
 sudo systemctl stop apache2
 sudo update-rc.d apache2 disable 
+```
+
+## TMUX
+
+### Regular tmux keybindings
+
+```
+% vertical split
+" horizontal split
+! break pane into new window
+c new window
+
+
+$ rename session
+, rename window
+
+o select next pane
+{ swap pane with previous
+} swap pane with next
+n next window
+p previous window
+) next session
+( previous session
+; select previously active pane
+l select previously active window
+
+s interactive session & window browser
+w interactive window browser
+
+: command prompt
+d detach
+f search text in open windows
+
+[ copy mode
+] paste buffer
+# list buffers
+- delete buffer
 ```
 
 ## VS Code
