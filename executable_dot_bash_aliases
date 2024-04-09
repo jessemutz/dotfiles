@@ -96,9 +96,11 @@ function gcmh () {
 tarball () {
   tar -czvf "$1".tar.gz "$1"
 }
+
 untar () {
   tar -xzvf "$1"
 }
+
 viewtar () {
   tar -tzvf "$1"
 }
@@ -107,30 +109,17 @@ drv () {
   echo 'drush sset environment_indicator.current_release "Version:' "$1"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
 }
 
-# dr () {
-#   echo 'drush sset environment_indicator.current_release "Version:' $(git describe --exact-match --tags $(git log -n1 --pretty='%h')
-# )' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
-# }
-
-
 drtv () {
   echo "Setting git tag...\n"
-
   eval git tag 'v'$1;
-
   echo "Done.\n"
-
   echo "Grabbing git information...\n"
   # echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
-  
+
   # This sets the drush command
-  # version=`echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'`;
-    # version=`echo 'sset environment_indicator.current_release "Version:' "$1"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'`;
-    # drupalVersion=`lando drush status | grep "Drupal version" | sed -e "s/\s\{3,\}//g" | rev | cut -b1-5 | rev`;
-    # gitTag=`git describe --exact-match --tags $(git log -n1 --pretty='%h')`;
-    gitTag=`git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1`;
-    drupalVersion=`lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1`
-    version=`echo 'sset environment_indicator.current_release "d'$drupalVersion' | '$gitTag' | #'$(git log -n1 --format="%h | %aD")'"'`;
+  gitTag=`git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1`;
+  drupalVersion=`lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1`
+  version=`echo 'sset environment_indicator.current_release "d'$drupalVersion' | '$gitTag' | #'$(git log -n1 --format="%h | %aD")'"'`;
 
   # This removes the last 10 characters, being the timezone and seconds
   cleanVersion=${version:0:${#version}-10};
@@ -144,22 +133,15 @@ drtv () {
 
 drt () {
   echo "Setting git tag...\n"
-
   git tag 'v'$1;
-
   echo "Done.\n"
-
   echo "Grabbing git information...\n"
   # echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
-  
+
   # This sets the drush command
-  # version=`echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'`;
-    # version=`echo 'sset environment_indicator.current_release "Version:' "$1"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'`;
-    # drupalVersion=`lando drush status | grep "Drupal version" | sed -e "s/\s\{3,\}//g" | rev | cut -b1-5 | rev`;
-    # gitTag=`git describe --exact-match --tags $(git log -n1 --pretty='%h') | cut -c2-`;
-    gitTag=`git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1`;
-    drupalVersion=`lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1`
-    version=`echo 'sset environment_indicator.current_release "'$drupalVersion'-'$gitTag' | #'$(git log -n1 --format="%h | %aD")'"'`;
+  gitTag=`git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1`;
+  drupalVersion=`lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1`
+  version=`echo 'sset environment_indicator.current_release "'$drupalVersion'-'$gitTag' | #'$(git log -n1 --format="%h | %aD")'"'`;
 
   # This removes the last 10 characters, being the timezone and seconds
   cleanVersion=${version:0:${#version}-10};
@@ -170,41 +152,37 @@ drt () {
   echo "\nRunning command on Pantheon. Select DEV or cancel. \n"
   eval trd $cleanVersion'"'
 }
- 
+
 trd () {
   if [ -v SITE ]; then
-  echo "${GRBG} $SITE ${NC}: select Pantheon server:"
+    echo "${GRBG} $SITE ${NC}: select Pantheon server:"
     select env in dev test git-branch live Quit
-    case $env in
-    "dev"|"test"|"live")
-      echo "Running ${GRN}'drush $@'${NC} on ${YEL}$SITE${NC}.${YELBG}$env${NC}"
-      terminus remote:drush $SITE.$env -- $@
-      break
-    ;;
-    "Quit")
-      echo "k, forget it."
-      break
-    ;;
-    git-branch)
-      terminus remote:drush $SITE.$(git branch --show-current) -- $@
-      break
-    ;;
-    *)
-      echo "Pick a valid option."
-      break
-    ;;
-    esac
-  else
-    echo "\$SITE not set. Use: 'export SITE=site-name-here'"
+      case $env in
+        'dev'|'test'|'live')
+          echo `Running ${GRN}'drush $@'${NC} on ${YEL}$SITE${NC}.${YELBG}$env${NC}`
+          terminus remote:drush $SITE.$env -- $@
+          break
+          ;;
+        'Quit')
+          echo 'k, forget it.'
+          break
+          ;;
+        git-branch)
+          terminus remote:drush $SITE.$(git branch --show-current) -- $@
+          break
+          ;;
+        *)
+          echo 'Pick a valid option.'
+          break
+          ;;
+      esac
+    else
+      echo `\$SITE not set. Use: 'export SITE=site-name-here'`
   fi
 }
 
-
-
 #* SSH Into Digital Ocean
 dev=162.243.164.71;
-prod=68.183.115.122;
-alias sshprod='ssh root@$prod'
 alias sshdev='ssh root@$dev'
 
 #* Copy Digital Ocean Database into local db-dump folder
@@ -237,3 +215,26 @@ crd () {
 
 # alias python='python3'
 alias pip='pip3'
+
+# Set tmux picker
+tmx () {
+  select tm in BAM ADA PCC Quit
+    case $tm in
+      'Quit')
+      echo 'okay'
+      break
+      ;;
+    'BAM')
+      wd bam && tmux a -t "[BAM] Biz Arch Mastery"
+      break
+      ;;
+    'ADA')
+      wd ada && tmux a -t "[ADA] Rocky Mountain ADA"
+      break
+      ;;
+    'PCC')
+      wd pcc && tmux a -t "[PCC] Pioneer Construction"
+      break
+      ;;
+    esac
+}
