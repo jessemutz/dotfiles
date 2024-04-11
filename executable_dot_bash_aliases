@@ -218,7 +218,7 @@ alias pip='pip3'
 
 # Set tmux picker
 tmx () {
-  select tm in BAM ADA PCC Quit
+  select tm in BAM ADA PCC AHF Quit
     case $tm in
       'Quit')
       echo 'okay'
@@ -234,6 +234,10 @@ tmx () {
       ;;
     'PCC')
       wd pcc && tmux a -t "[PCC] Pioneer Construction"
+      break
+      ;;
+    'AHF')
+      wd ahf && tmux a -t "[AHF] Avalanche Hardwood Floors"
       break
       ;;
     esac
