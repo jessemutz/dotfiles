@@ -1,8 +1,9 @@
-[ADA] Rocky Mountain ADA	ADA nvim	/home/jesse/Sites/pantheon/d9--rocky-mountain-ada-center
-[BAM] Biz Arch Mastery	nvim	/home/jesse/Sites/pantheon/d9--biz-arch-mastery
-[BAM] Biz Arch Mastery	BAM shell	/home/jesse/Sites/netlify/pioneer-construction
-[PCC] Pioneer Construction	PCC nvim	/home/jesse/Sites/netlify/pioneer-construction
-[PCC] Pioneer Construction	PCC Scripts	/home/jesse/Sites/netlify/pioneer-construction
-[TEL] Telios Law	TEACHES	/home/jesse/Sites/pantheon/d9--telios-teaches
-[TEL] Telios Law	LAW	/home/jesse/Sites/pantheon/d9--telios-law
-[TEL] Telios Law	Investigations	/home/jesse/Sites/pantheon/d9--telios-investigations
+ALL Clients	PCC	/Users/jesse/Sites/netlify/pioneer-construction
+ALL Clients	[BAM]	/Users/jesse
+ALL Clients	AHF	/Users/jesse/Sites/netlify/pioneer-construction
+[ADA] Rocky Mountain ADA	ADA nvim	/Users/jesse/Sites/pantheon/d9--rocky-mountain-ada-center
+[ADA] Rocky Mountain ADA	ADA shell	/Users/jesse
+[AHF] Avalanche Hardwod Floors	AHF nvim	/Users/jesse/Sites/netlify/avalanche-hardwood-floors
+[AHF] Avalanche Hardwod Floors	AHF Scripts	/Users/jesse/Sites/netlify/avalanche-hardwood-floors
+[BAM] Biz Arch Mastery	BAM nvim	/Users/jesse/Sites/pantheon/d9--biz-arch-mastery
+[BAM] Biz Arch Mastery	BAM shell	/Users/jesse/Sites/pantheon/d9--biz-arch-mastery
