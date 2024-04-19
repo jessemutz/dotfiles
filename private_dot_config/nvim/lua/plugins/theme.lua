@@ -1,3 +1,6 @@
+vim.cmd.highlight({ "Normal", "guibg=none ctermbg=none" })
+vim.cmd.highlight({ "NormalNC", "guibg=#310102" })
+
 return {
   {
     "rose-pine/neovim",
