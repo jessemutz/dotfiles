@@ -4,7 +4,7 @@ return {
   -- Use multi line editing with visual mode
   "mg979/vim-visual-multi",
   "cakebaker/scss-syntax.vim",
-
+  { "levouh/tint.nvim", lazy = false },
   -- VIM + TMUX navigation
   {
     "christoomey/vim-tmux-navigator",

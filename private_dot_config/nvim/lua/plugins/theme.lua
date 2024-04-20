@@ -1,5 +1,6 @@
 vim.cmd.highlight({ "Normal", "guibg=none ctermbg=none" })
-vim.cmd.highlight({ "NormalNC", "guibg=#310102" })
+vim.cmd.highlight({ "NormalNC", "guibg=#1a1a32 guifg=#ffffaa" })
+-- vim.cmd.highlight({ "NormalNC", "guibg=black ctermbg=10" })
 
 return {
   {
