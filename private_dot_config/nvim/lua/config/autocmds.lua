@@ -4,4 +4,5 @@
 
 vim.cmd.highlight({ "Normal", "guibg=none ctermbg=none" })
 -- vim.cmd.highlight({ "NormalNC", "guibg=#310102 ctermbg=none" })
-vim.cmd.highlight({ "NormalNC", "guibg=none ctermbg=none" })
+vim.cmd.highlight({ "NormalNC", "guibg=none" })
+vim.cmd.highlight({ "Constant", "guibg=none" })

@@ -1,7 +1,3 @@
-vim.cmd.highlight({ "Normal", "guibg=none ctermbg=none" })
-vim.cmd.highlight({ "NormalNC", "guibg=#1a1a32 guifg=#ffffaa" })
--- vim.cmd.highlight({ "NormalNC", "guibg=black ctermbg=10" })
-
 return {
   {
     "rose-pine/neovim",
@@ -35,7 +31,8 @@ return {
 
   {
     "catppuccin/nvim",
-    name = "colors_catppuccin",
+    name = "catppuccin",
+    priority = 1000,
     lazy = false,
   },
   -- Set colorscheme to rose-pine
@@ -43,7 +40,17 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = { "rose-pine-main" },
+      -- colorscheme = { "rose-pine-main" },
+      colorscheme = { "catppuccin-mocha" },
     },
+    require("catppuccin").setup({
+      flavour = "mocha",
+      transparent_background = true,
+      dim_inactive = {
+        enabled = false,
+        shade = "dark",
+        percentage = 0.5,
+      },
+    }),
   },
 }
