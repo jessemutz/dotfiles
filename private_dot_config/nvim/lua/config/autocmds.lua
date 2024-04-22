@@ -3,4 +3,5 @@
 -- Add any additional autocmds here
 
 vim.cmd.highlight({ "Normal", "guibg=none ctermbg=none" })
-vim.cmd.highlight({ "NormalNC", "guibg=#310102 ctermbg=none" })
+-- vim.cmd.highlight({ "NormalNC", "guibg=#310102 ctermbg=none" })
+vim.cmd.highlight({ "NormalNC", "guibg=none ctermbg=none" })
