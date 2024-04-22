@@ -1,9 +1,8 @@
 return {
   "ThePrimeagen/vim-be-good", -- vim game
 
-  -- Use multi line editing with visual mode
-  "mg979/vim-visual-multi",
-  "cakebaker/scss-syntax.vim",
+  "mg979/vim-visual-multi", -- Use multi line editing with visual mode
+  "cakebaker/scss-syntax.vim", -- SCSS syntax highlighting
 
   -- VIM + TMUX navigation
   {
