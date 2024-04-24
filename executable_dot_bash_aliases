@@ -158,26 +158,26 @@ trd () {
     echo "${GRBG} $SITE ${NC}: select Pantheon server:"
     select env in dev test git-branch live Quit
       case $env in
-        "dev"|"test"|"live")
+        'dev'|'test'|'live')
           echo `Running ${GRN}'drush $@'${NC} on ${YEL}$SITE${NC}.${YELBG}$env${NC}`
           terminus remote:drush $SITE.$env -- $@
           break
           ;;
-        "Quit")
-          echo "k, forget it."
+        'Quit')
+          echo 'k, forget it.'
           break
           ;;
-        git-branch)
+        'git-branch')
           terminus remote:drush $SITE.$(git branch --show-current) -- $@
           break
           ;;
         *)
-          echo "Pick a valid option."
+          echo 'Pick a valid option.'
           break
           ;;
       esac
     else
-      echo "\$SITE not set. Use: 'export SITE=site-name-here'"
+      echo `\$SITE not set. Use: 'export SITE=site-name-here'`
   fi
 }
 
