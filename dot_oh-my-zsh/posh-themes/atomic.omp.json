@@ -36,7 +36,7 @@
       "segments": [
         {
           "foreground": "p:text",
-          "leading_diamond": "\u256d\u2500",
+          "leading_diamond": "<p:text>\u256d\u2500<p:text>",
           "properties": {
             "linux": "\uf17c",
             "macos": "\ue711",
@@ -49,7 +49,7 @@
         {
           "background": "p:red",
           "foreground": "p:yellow",
-          "style": "plain",
+          "style": "powerline",
           "template": "\ue0b0 \uf292 ",
           "type": "root"
         },
