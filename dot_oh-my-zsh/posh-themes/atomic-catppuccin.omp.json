@@ -35,50 +35,54 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "p:text",
-          "leading_diamond": "\u256d\u2500",
+          "background": "p:text",
+          "foreground": "p:crust",
+          "leading_diamond": "\u256d\u2500\ue0b6",
           "properties": {
             "linux": "\uf17c",
             "macos": "\ue711",
             "windows": "\ue70f"
           },
           "style": "diamond",
-          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}}",
           "type": "os"
         },
         {
           "background": "p:red",
           "foreground": "p:yellow",
-          "style": "plain",
-          "template": "\ue0b0 \uf292 ",
+          "style": "diamond",
+          "template": "<parentBackground>\ue0b0</> \uf292 ",
           "type": "root"
         },
         {
-          "foreground": "p:sapphire",
+          "foreground": "p:base",
+          "background": "p:sapphire",
+          "powerline_symbol": "\ue0b0",
           "properties": {
             "folder_icon": "..\ue5fe..",
             "home_icon": "~",
             "style": "agnoster_short"
           },
-          "style": "plain",
-          "template": "{{ .Path }}",
+          "style": "powerline",
+          "template": "{{ .Path }} ",
           "type": "path"
         },
         {
-          "foreground": "p:green",
-          "foreground_templates": [
+          "background": "p:green",
+          "background_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:teal{{ end }}",
             "{{ if gt .Ahead 0 }}p:mauve{{ end }}",
             "{{ if gt .Behind 0 }}p:maroon{{ end }}"
           ],
+          "foreground": "#011627",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "branch_icon": "\ue725 ",
             "fetch_status": true,
             "fetch_upstream_icon": true
           },
-          "style": "plain",
+          "style": "powerline",
           "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#C20A00> \uf046{{ .Staging.String }}</>{{ end }} ",
           "type": "git"
         },
