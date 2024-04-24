@@ -83,16 +83,24 @@
           "type": "git"
         },
         {
-          "background": "p:base",
-          "foreground": "p:rosewater",
+          // "background": "p:base",
+          "foreground": "p:pink",
           "properties": {
             "style": "roundrock",
             "threshold": 0
           },
           "style": "diamond",
-          "template": " \ueba2 {{ .FormattedMs }}\u2800",
-          "trailing_diamond": "\ue0b4",
+          "template": " \ueba2 {{ .FormattedMs }}|",
+          "trailing_diamond": "",
           "type": "executiontime"
+        },
+        {
+          "foreground": "p:pink",
+          "style": "plain",
+          "template": "RAM:{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "type": "sysinfo"
         }
       ],
       "type": "prompt"
@@ -231,16 +239,16 @@
           "trailing_diamond": "\ue0b4",
           "type": "kubectl"
         },
+        // {
+        //   "background": "p:surface1",
+        //   "foreground": "p:text",
+        //   "leading_diamond": "\ue0b6",
+        //   "style": "diamond",
+        //   "template": "\uf120{{ .Name }} ",
+        //   "type": "shell"
+        // },
         {
-          "background": "p:surface1",
-          "foreground": "p:text",
-          "leading_diamond": "\ue0b6",
-          "style": "diamond",
-          "template": "\uf120{{ .Name }} ",
-          "type": "shell"
-        },
-        {
-          "background": "#F4A261",
+          "background": "p:peach",
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}p:mauve{{end}}",
             "{{if eq \"Discharging\" .State.String}}p:red{{end}}",
@@ -264,10 +272,10 @@
           "invert_powerline": true,
           "leading_diamond": "\ue0b6",
           "properties": {
-            "time_format": "2 \uf01703:04"
+            "time_format": "Mon, Jan _2 \uf017 03:04pm"
           },
           "style": "diamond",
-          "template": " \uf073{{ .CurrentDate | date .Format }}",
+          "template": " \uf073 {{ .CurrentDate | date .Format }}",
           "trailing_diamond": "\ue0b4",
           "type": "time"
         }
