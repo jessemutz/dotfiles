@@ -54,7 +54,7 @@
           "type": "root"
         },
         {
-          "foreground": "p:sapphire",
+          "foreground": "p:teal",
           "properties": {
             "folder_icon": "..\ue5fe..",
             "home_icon": "~",
@@ -268,7 +268,7 @@
         },
         {
           "background": "p:mantle",
-          "foreground": "p:text",
+          "foreground": "p:subtext1",
           "invert_powerline": true,
           "leading_diamond": "\ue0b6",
           "properties": {
