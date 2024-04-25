@@ -246,17 +246,17 @@
         //   "type": "shell"
         // },
         {
-          "background": "p:peach",
-          "background_templates": [
+          "background": "p:mantle",
+          "foreground_templates": [
             "{{if eq \"Charging\" .State.String}}p:mauve{{end}}",
             "{{if eq \"Discharging\" .State.String}}p:red{{end}}",
-            "{{if eq \"Full\" .State.String}}p:surface0{{end}}"
+            "{{if eq \"Full\" .State.String}}p:green{{end}}"
           ],
-          "foreground": "p:mantle",
+          "foreground": "p:subtext1",
           "invert_powerline": true,
           "leading_diamond": "\ue0b6",
           "properties": {
-            "charged_icon": "\uf240 ",
+            "charged_icon": "\uf240  ",
             "charging_icon": "\uf1e6 ",
             "discharging_icon": "\ue234 "
           },
@@ -265,7 +265,7 @@
           "type": "battery"
         },
         {
-          "background": "p:mantle",
+          "background": "p:crust",
           "foreground": "p:subtext1",
           "invert_powerline": true,
           "leading_diamond": "\ue0b6",
