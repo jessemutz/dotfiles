@@ -1,8 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "palette": {
-    "os": "#ACB0BE",
-    "closer": "p:os",
     "rosewater": "#f5e0dc",
     "flamingo": "#f2cdcd",
     "pink": "#f5c2e7",
@@ -54,7 +52,7 @@
           "type": "root"
         },
         {
-          "foreground": "p:teal",
+          "foreground": "p:sapphire",
           "properties": {
             "folder_icon": "..\ue5fe..",
             "home_icon": "~",
@@ -79,12 +77,12 @@
             "fetch_upstream_icon": true
           },
           "style": "plain",
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#C20A00> \uf046{{ .Staging.String }}</>{{ end }} ",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<p:red> \uf046 {{ .Staging.String }}</>{{ end }} ",
           "type": "git"
         },
         {
           // "background": "p:base",
-          "foreground": "p:pink",
+          "foreground": "p:maroon",
           "properties": {
             "style": "roundrock",
             "threshold": 0
@@ -95,7 +93,7 @@
           "type": "executiontime"
         },
         {
-          "foreground": "p:pink",
+          "foreground": "p:maroon",
           "style": "plain",
           "template": "RAM:{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB",
           "leading_diamond": "\ue0b6",
