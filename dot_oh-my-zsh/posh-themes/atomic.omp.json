@@ -81,8 +81,7 @@
           "type": "git"
         },
         {
-          // "background": "p:base",
-          "foreground": "p:maroon",
+          "foreground": "p:lavender",
           "properties": {
             "style": "roundrock",
             "threshold": 0
@@ -93,7 +92,7 @@
           "type": "executiontime"
         },
         {
-          "foreground": "p:maroon",
+          "foreground": "p:lavender",
           "style": "plain",
           "template": "RAM:{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB",
           "leading_diamond": "\ue0b6",
