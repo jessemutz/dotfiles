@@ -1,8 +1,11 @@
 return {
+  -- Disable Headlines backgrounds on md files
+  { "lukas-reineke/headlines.nvim", enabled = false },
   "ThePrimeagen/vim-be-good", -- vim game
-
   "mg979/vim-visual-multi", -- Use multi line editing with visual mode
   "cakebaker/scss-syntax.vim", -- SCSS syntax highlighting
+  "tpope/vim-abolish", -- better find and replace
+  "mattn/emmet-vim", -- html emmet
   {
     "brenoprata10/nvim-highlight-colors",
     init = function()
