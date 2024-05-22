@@ -144,4 +144,4 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(atuin init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.oh-my-zsh/posh-themes/atomic.omp.json)"
 
-export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid,numbers --line-range :300 {}'"
+export FZF_DEFAULT_OPTS="-m --ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid,numbers --line-range :300 {}'"
