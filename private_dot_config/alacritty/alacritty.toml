@@ -1,0 +1,44 @@
+# Alacritty - TOML configuration file format.
+
+live_config_reload = true
+
+import = [
+  # uncomment the flavour you want below:
+  "~/.config/alacritty/catppuccin-mocha.toml",
+  "~/.config/alacritty/keybindings.toml"
+]
+
+[env]
+  TERM = "xterm-256color"
+
+# live_config_reload = true | false
+# Live config reload (changes require restart)
+# Default: true
+
+[window]
+  decorations = "buttonless"
+  startup_mode = "Windowed"
+  title = "Alacritty"
+  dynamic_title = true 
+  decorations_theme_variant = "None"
+  # decorations = "Full"
+  opacity = 0.9
+  blur = false
+[window.padding]
+x = 4
+y = 10
+
+# multiplier = <integer>
+# Number of line scrolled for every input scroll increment.
+# Default: 3
+
+[scrolling]
+  history = 10000
+  multiplier = 3
+
+
+[font]
+  normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+  size = 12
+  builtin_box_drawing = true 
+
