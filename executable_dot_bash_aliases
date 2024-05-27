@@ -19,7 +19,7 @@ alias ..2='cd ../../'
 alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
 
-alias pcat='pygmentize -g -O style=colorful,linenos=1'
+alias pcat='pygmentize -g -O style=colorful'
 
 #* Cheat.sh - cheat sheet
 how () {
