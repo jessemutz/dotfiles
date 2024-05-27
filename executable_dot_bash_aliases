@@ -19,6 +19,8 @@ alias ..2='cd ../../'
 alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
 
+alias pcat='pygmentize -g -O style=colorful,linenos=1'
+
 #* Cheat.sh - cheat sheet
 how () {
   curl cheat.sh/"$1"
