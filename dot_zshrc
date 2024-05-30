@@ -82,6 +82,8 @@ plugins=(
   zsh-autosuggestions
 )
 
+bindkey '^ ' autosuggest-accept
+
 # Move superfluous .zcompdump files out of $HOME
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
