@@ -82,7 +82,9 @@ plugins=(
   zsh-autosuggestions
 )
 
-bindkey '^ ' autosuggest-accept
+# Ctrl + Space to execute zsh-autosuggestions. Control+E is already end of line to accept it.
+# bindkey '^ ' autosuggest-accept
+bindkey '^ ' autosuggest-execute
 
 # Move superfluous .zcompdump files out of $HOME
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
