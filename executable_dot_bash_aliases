@@ -41,7 +41,7 @@ alias l='lando'
 alias n='nvim $(fzf -e)'
 alias gw='gulp watch'
 alias mk="minikube"
-alias k="kubernetes"
+alias k="kubectl"
 # alias python='python3'
 alias pip='pip3'
 
