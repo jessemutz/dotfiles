@@ -11,33 +11,52 @@ RDBG='\e[1;30;41m'  # Red BG
 GRBG='\e[1;30;42m'  # Green BG
 YELBG='\e[1;30;43m' # Yellow BG
 NC='\033[0m'        # No Color
+
 #* System
 alias aptup='sudo apt update && sudo apt upgrade'
+alias brewup='brew update && brew upgrade'
+export EDITOR=nvim
 
-#* Git
+#* Filesystem
 alias o='open .'
 alias ..='cd ../'
 alias ..2='cd ../../'
 alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
-
+# Colorful cat command
 alias pcat='pygmentize -g -O style=colorful'
-
-#* Cheat.sh - cheat sheet
-how() {
-	curl cheat.sh/"$1"
-}
 
 #* Editor
 e() {
 	code "$1" .
 }
 
-alias brewup='brew update && brew upgrade'
+# Color LS tool instead of regular ls
+alias ls='colorls'
+alias la='colorls -la'
+alias ll='colorls -l'
 
-export EDITOR=nvim
+#* Shortkeys for different services and tools
+alias l='lando'
+alias n='nvim $(fzf -e)'
+alias gw='gulp watch'
+alias mk="minikube"
+alias k="kubernetes"
+# alias python='python3'
+alias pip='pip3'
 
-alias hosts='code /etc/hosts'
+# Docker exec
+dex() {
+	docker exec -ti "$1" /bin/bash
+}
+
+#* Cheat.sh - cheat sheet
+# This is similar to man pages, but quick and dirty. Good stuff
+how() {
+	curl cheat.sh/"$1"
+}
+
+# alias hosts='code /etc/hosts'
 
 alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
 
@@ -56,17 +75,18 @@ alias gpom='git pull origin master'
 alias bc='better-commits'
 alias bb='better-branch'
 
-# Color LS tool instead of regular ls
-alias ls='colorls'
-alias la='colorls -la'
-alias ll='colorls -l'
+# Tar Balls
+tarball() {
+	tar -czvf "$1".tar.gz "$1"
+}
 
-# alias python='python3'
-alias pip='pip3'
+untar() {
+	tar -xzvf "$1"
+}
 
-# Shortkeys for services
-alias l='lando'
-alias n='nvim $(fzf -e)'
+viewtar() {
+	tar -tzvf "$1"
+}
 
 # Harvest
 alias h='hrvst'
@@ -96,19 +116,6 @@ function gcmh() {
 	git commit -m "$1"
 	echo "Updating harvest time entry..."
 	hrvst note -n="$1"
-}
-
-# Tar Balls
-tarball() {
-	tar -czvf "$1".tar.gz "$1"
-}
-
-untar() {
-	tar -xzvf "$1"
-}
-
-viewtar() {
-	tar -tzvf "$1"
 }
 
 drv() {
@@ -167,14 +174,6 @@ alias sshdev='ssh root@$dev'
 
 devdbdump() {
 	scp root@$dev:/data/db-dumps/${1} $HOME/db-dumps/.
-}
-
-# Gulp
-alias gw='gulp watch'
-
-# Docker exec
-dex() {
-	docker exec -ti "$1" /bin/bash
 }
 
 # Composer require Drupal
