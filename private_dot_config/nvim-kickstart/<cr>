@@ -1,0 +1,4 @@
+return {
+  vim.keymap.set({ 'i', 'v' }, 'jk', '<esc>'),
+  vim.keymap.set({ 'i', 'v' }, '<C-s>', ':update<cr>'),
+}
