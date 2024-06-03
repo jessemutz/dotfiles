@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Set colors for prompt
 BLK='\e[0;30m'     # Black Text
@@ -10,6 +10,13 @@ RDBG='\e[1;30;41m'  # Red BG
 GRBG='\e[1;30;42m'  # Green BG
 YELBG='\e[1;30;43m' # Yellow BG
 NC='\033[0m'       # No Color
+
+# Function to center text
+center() {
+    termwidth=$(tput cols)
+    padding=$(printf '%0.1s' " "{1..500})
+    printf '%*.*s %s %*.*s\n' 0 $(((${termwidth}+${#1})/2)) "$padding" "$1" 0 $(((${termwidth}-${#1})/2)) "$padding"
+}
 
 # Function to interactively select Pantheon server and run drush command
 trd() {
@@ -39,10 +46,17 @@ trd() {
 				break
 				;;
 			'live')
-				echo "Are you sure you want to run ${GRN}drush $1${NC} on the ${RED}$SITE ${RDBG}live${NC} environment? [y/N] \c"
+        echo " You are about to run the following command:"
+        echo " ${GRBG}  drush $@  ${NC}"
+        echo " "
+        echo " on the following environment:"
+        echo " ${RDBG}  $SITE.live  ${NC}"
+        echo " "
+        echo " Are you sure you want to do this? [y/N] \c"
 				read response
 				case $response in
 					[yY][eE][sS]|[yY])
+            echo " "
 						echo "Running ${GRN}'drush $@'${NC} on ${RED}$SITE${NC}.${RDBG}live${NC}"
 						terminus remote:drush "$SITE.live" -- "$@"
 						;;
