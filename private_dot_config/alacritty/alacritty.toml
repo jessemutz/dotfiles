@@ -16,17 +16,16 @@ import = [
 # Default: true
 
 [window]
-  decorations = "buttonless"
+  decorations = "None"
+  # decorations = "Full"
+  # decorations = "Full" | "None" | "Transparent" | "Buttonless"
   startup_mode = "Windowed"
   title = "Alacritty"
   dynamic_title = true 
   decorations_theme_variant = "None"
-  # decorations = "Full"
   opacity = 0.9
-  blur = false
-[window.padding]
-x = 4
-y = 10
+  blur = true
+  padding = { x = 4, y = 10 }
 
 # multiplier = <integer>
 # Number of line scrolled for every input scroll increment.
@@ -38,7 +37,11 @@ y = 10
 
 
 [font]
-  normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
   size = 12
-  builtin_box_drawing = true 
+  # normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+  italic = { family = "SpaceMono Nerd Font", style = "Italic"}
+  bold = { family = "SpaceMono Nerd Font", style = "Bold"}
+  bold_italic = { family = "SpaceMono Nerd Font", style = "Bold Italic"}
+  normal = { family = "SpaceMono Nerd Font", style = "Regular" }
+  builtin_box_drawing = true
 
