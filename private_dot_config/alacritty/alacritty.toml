@@ -25,6 +25,7 @@ import = [
   decorations_theme_variant = "None"
   opacity = 0.9
   blur = true
+  dimensions = { columns = 120, lines = 40 }
   padding = { x = 4, y = 10 }
 
 # multiplier = <integer>
@@ -34,7 +35,6 @@ import = [
 [scrolling]
   history = 10000
   multiplier = 3
-
 
 [font]
   size = 12
