@@ -107,6 +107,7 @@ source $ZSH/oh-my-zsh.sh
 
 # WD Path fix
 WD_SKIP_EXPORT=true
+WD_CONFIG=~/.config/.warprc
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
