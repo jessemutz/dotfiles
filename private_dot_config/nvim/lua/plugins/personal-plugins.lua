@@ -49,6 +49,17 @@ return {
   -- HTML Emmet
   "mattn/emmet-vim",
 
+  -- Glow Markdown Preview
+  {
+    "ellisonleao/glow.nvim",
+    init = function()
+      require("glow").setup({
+        border = "rounded",
+      })
+    end,
+    cmd = "Glow",
+  },
+
   -- Disable Headlines backgrounds on md files
   { "lukas-reineke/headlines.nvim", enabled = false },
 
