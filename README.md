@@ -1,4 +1,5 @@
 # My Dotfiles & System Setup
+
 Using [Chezmoi](https://www.chezmoi.io) to handle syncing dotfiles across multiple diverse machines.
 
 [Chezmoi Quick Start](https://www.chezmoi.io/quick-start/)
@@ -11,14 +12,14 @@ Below are tools and software needed to get a new machine up and running.
 
 ## Tools & Software
 
-
+- Alacritty (terminal emulator)
 - Beekeeper-Studio - Database manager (free version)
 - Bitwarden - Password Manager
 - [Calibre](https://calibre-ebook.com/download) - ebook manager
 - Dropbox
 - [Figma](https://www.figma.com/downloads/)
 - Plex
-- Spotify 
+- Spotify
 - VLC
 - VSCode
 - Dropbox
@@ -28,21 +29,24 @@ Below are tools and software needed to get a new machine up and running.
 - Google Chrome
 - FileZilla
 - Firefox
-  - Install *Gnome Shell Extensions* for Linux tools
+  - Install _Gnome Shell Extensions_ for Linux tools
 - Private Internet Access VPN
 
 ### Command Line Tools
+
+- chezmoi - manage and sync dotfiles
 - [atuin](https://atuin.sh/) (very cool shell history sync & search)
 - git
 - lando (for local Drupal & Wordpress site containers)
 - [nvm (install via github)](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
   - after install, run `nvm install 14 && nvm install 16 && nvm install 18`
 - screenfetch
-- vim
+- neovim
 - youtube-dl
 - zsh
 
 ### Mac Specific Tools
+
 - Affinity Design, Publisher, Photo (Adobe alternatives)
 - Alfred
 - Clip Menu
@@ -52,6 +56,7 @@ Below are tools and software needed to get a new machine up and running.
 - Xcode
 
 ### Linux Specific Tools
+
 - CopyQ - Clipboard Manger
 - Gnome Tweak Tool - adjust appearance
 - Gnome Extensions
@@ -69,6 +74,7 @@ Below are tools and software needed to get a new machine up and running.
   - e.g. `sudo update-alternatives --set php /usr/bin/php8.1`
 
 ## Linux Commands
+
 Install various plugins
 
 ```shell
@@ -86,6 +92,7 @@ zsh
 ```
 
 PHP versions and version switcher
+
 ```shell
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
@@ -96,17 +103,18 @@ sudo apt install php8.1
 sudo apt install php8.1-{fpm,json,zip,gd,mbstring,curl,xml,bcmath,dom}
 ```
 
-Stop apache so we can use Lando 
+Stop apache so we can use Lando
+
 ```shell
 sudo systemctl stop apache2
-sudo update-rc.d apache2 disable 
+sudo update-rc.d apache2 disable
 ```
 
 ## TMUX
 
 ### Regular tmux keybindings
 
-```
+```text
 % vertical split
 " horizontal split
 ! break pane into new window
@@ -140,7 +148,9 @@ f search text in open windows
 ```
 
 ## VS Code
-Extensions should install automatically when signed in, but the extensions I like are:
+
+Extensions should install automatically when signed in with GitHub account, but the extensions I like are:
+
 - Alignment
 - Better Align
 - Better Comments
