@@ -15,6 +15,7 @@ return {
     -- Required.
     "nvim-lua/plenary.nvim",
   },
+
   opts = {
     workspaces = {
       {
@@ -33,6 +34,8 @@ return {
       },
     },
 
+    disable_frontmatter = true,
+
     -- Daily Note
     daily_notes = {
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
@@ -47,12 +50,4 @@ return {
       substitutions = {},
     },
   },
-
-  -- Examples
-  --
-  -- - [ ] todo
-  -- - [x] done
-  -- - [>] Follow Up
-  -- - [~] Cancelled
-  -- - [!] Important
 }
