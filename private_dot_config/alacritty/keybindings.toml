@@ -2,3 +2,11 @@
 #   bindings = [
 # {}
 # ]
+
+[keyboard]
+bindings = [
+{ key = "C", mods = "Control", action = "Copy" },
+{ key = "V", mods = "Control", action = "Paste" },
+{ key = "C", mods = "Command|Shift", chars = "\u0003" },
+{ key = "F", mods = "Command|Shift", action = "ToggleFullscreen" },
+]
