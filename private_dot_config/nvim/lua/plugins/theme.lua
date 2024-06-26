@@ -6,12 +6,15 @@ return {
     lazy = false,
     config = function()
       require("catppuccin").setup({
-        flavour = "mocha",
-        transparent_background = true,
+        background = {
+          light = "frappe",
+          dark = "mocha",
+        },
+        -- transparent_background = true,
         dim_inactive = {
           enabled = true,
           shade = "dark",
-          percentage = 0.5,
+          percentage = 0.15,
         },
       })
     end,
