@@ -13,8 +13,9 @@ return {
         ---Highlight named colors, e.g. 'green'
         enable_named_colors = false,
         ---Highlight tailwind colors, e.g. 'bg-blue-500'
-        enable_tailwind = true,
+        -- enable_tailwind = true,
       })
     end,
   },
 }
+
