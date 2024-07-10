@@ -16,4 +16,4 @@ vim.keymap.set("n", "<leader>Ol", "<cmd>:ObsidianLinks<CR>", { desc = "Collect a
 vim.keymap.set("n", "<leader>sO", "<cmd>:ObsidianSearch<CR>", { desc = "Search Obsidian vault" })
 vim.keymap.set("n", "<leader>Os", "<cmd>:ObsidianSearch<CR>", { desc = "Search Obsidian vault" })
 
-vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory in Oil buffer" })
+vim.keymap.set("n", "-", require("oil").open_float, { desc = "Open parent directory in Oil buffer" })
