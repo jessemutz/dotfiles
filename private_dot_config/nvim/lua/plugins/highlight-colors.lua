@@ -7,15 +7,16 @@ return {
 
         ---Render style
         ---@usage 'background'|'foreground'|'virtual'
-        render = "background",
+        render = "virtual",
         ---Set virtual symbol (requires render to be set to 'virtual')
         virtual_symbol = "",
+        -- virtual_symbol_position = "eow",
         ---Highlight named colors, e.g. 'green'
         enable_named_colors = false,
         ---Highlight tailwind colors, e.g. 'bg-blue-500'
-        -- enable_tailwind = true,
+        enable_tailwind = true,
+        exclude_filetypes = { "astro" },
       })
     end,
   },
 }
-
