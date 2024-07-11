@@ -24,11 +24,11 @@ alias ..2='cd ../../'
 alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
 # Colorful cat command
-alias pcat='pygmentize -g -O style=colorful'
+alias pcat='pygmentize -g -O full,style=material,linenos=1'
 
 #* Editor
 e() {
-	code "$1" .
+  code "$1" .
 }
 
 # Color LS tool instead of regular ls
@@ -47,13 +47,13 @@ alias pip='pip3'
 
 # Docker exec
 dex() {
-	docker exec -ti "$1" /bin/bash
+  docker exec -ti "$1" /bin/bash
 }
 
 #* Cheat.sh - cheat sheet
 # This is similar to man pages, but quick and dirty. Good stuff
 how() {
-	curl cheat.sh/"$1"
+  curl cheat.sh/"$1"
 }
 
 # alias hosts='code /etc/hosts'
@@ -77,15 +77,15 @@ alias bb='better-branch'
 
 # Tar Balls
 tarball() {
-	tar -czvf "$1".tar.gz "$1"
+  tar -czvf "$1".tar.gz "$1"
 }
 
 untar() {
-	tar -xzvf "$1"
+  tar -xzvf "$1"
 }
 
 viewtar() {
-	tar -tzvf "$1"
+  tar -tzvf "$1"
 }
 
 # Harvest
@@ -97,73 +97,73 @@ alias h='hrvst'
 
 # Add a note to the running timer
 function hn() {
-	hrvst note -n="$1"
+  hrvst note -n="$1"
 }
 
 # Restart a given timer
 function hrs() {
-	hrvst time-entries restart -t=$1
+  hrvst time-entries restart -t=$1
 }
 
 #Replace a note with the given param
 function hup() {
-	echo "Updating entry with id $1 and note $2"
-	hrvst time-entries update -t="$1" -n="$2"
+  echo "Updating entry with id $1 and note $2"
+  hrvst time-entries update -t="$1" -n="$2"
 }
 
 function gcmh() {
-	echo "Commiting to git..."
-	git commit -m "$1"
-	echo "Updating harvest time entry..."
-	hrvst note -n="$1"
+  echo "Commiting to git..."
+  git commit -m "$1"
+  echo "Updating harvest time entry..."
+  hrvst note -n="$1"
 }
 
 drv() {
-	echo 'drush sset environment_indicator.current_release "Version:' "$1"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
+  echo 'drush sset environment_indicator.current_release "Version:' "$1"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
 }
 
 drtv() {
-	echo "Setting git tag...\n"
-	eval git tag 'v'$1
-	echo "Done.\n"
-	echo "Grabbing git information...\n"
-	# echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
+  echo "Setting git tag...\n"
+  eval git tag 'v'$1
+  echo "Done.\n"
+  echo "Grabbing git information...\n"
+  # echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
 
-	# This sets the drush command
-	gitTag=$(git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1)
-	drupalVersion=$(lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1)
-	version=$(echo 'sset environment_indicator.current_release "d'$drupalVersion' | '$gitTag' | #'$(git log -n1 --format="%h | %aD")'"')
+  # This sets the drush command
+  gitTag=$(git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1)
+  drupalVersion=$(lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1)
+  version=$(echo 'sset environment_indicator.current_release "d'$drupalVersion' | '$gitTag' | #'$(git log -n1 --format="%h | %aD")'"')
 
-	# This removes the last 10 characters, being the timezone and seconds
-	cleanVersion=${version:0:${#version}-10}
-	# This prints the clean command with a closing double quote
-	echo $cleanVersion'"'
-	echo "\nRunning command on local environment..."
-	eval lando drush $cleanVersion'"'
-	echo "\nRunning command on Pantheon. Select DEV or cancel. \n"
-	eval trd $cleanVersion'"'
+  # This removes the last 10 characters, being the timezone and seconds
+  cleanVersion=${version:0:${#version}-10}
+  # This prints the clean command with a closing double quote
+  echo $cleanVersion'"'
+  echo "\nRunning command on local environment..."
+  eval lando drush $cleanVersion'"'
+  echo "\nRunning command on Pantheon. Select DEV or cancel. \n"
+  eval trd $cleanVersion'"'
 }
 
 drt() {
-	echo "Setting git tag...\n"
-	git tag 'v'$1
-	echo "Done.\n"
-	echo "Grabbing git information...\n"
-	# echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
+  echo "Setting git tag...\n"
+  git tag 'v'$1
+  echo "Done.\n"
+  echo "Grabbing git information...\n"
+  # echo 'drush sset environment_indicator.current_release "Version:' "$(git for-each-ref --sort=-taggerdate --count=1 --format '%(tag)' refs/tags)"' | Commit: #'$(git log -n1 --format="%h | %aD")'"'
 
-	# This sets the drush command
-	gitTag=$(git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1)
-	drupalVersion=$(lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1)
-	version=$(echo 'sset environment_indicator.current_release "'$drupalVersion'-'$gitTag' | #'$(git log -n1 --format="%h | %aD")'"')
+  # This sets the drush command
+  gitTag=$(git describe --tags $(git log -n1 --pretty='%h') | cut -d "-" -f1)
+  drupalVersion=$(lando drush core-status --pipe | grep drupal-version | cut -c24- | cut -d'"' -f1)
+  version=$(echo 'sset environment_indicator.current_release "'$drupalVersion'-'$gitTag' | #'$(git log -n1 --format="%h | %aD")'"')
 
-	# This removes the last 10 characters, being the timezone and seconds
-	cleanVersion=${version:0:${#version}-10}
-	# This prints the clean command with a closing double quote
-	echo $cleanVersion'"'
-	echo "\nRunning command on local environment..."
-	eval lando drush $cleanVersion'"'
-	echo "\nRunning command on Pantheon. Select DEV or cancel. \n"
-	eval trd $cleanVersion'"'
+  # This removes the last 10 characters, being the timezone and seconds
+  cleanVersion=${version:0:${#version}-10}
+  # This prints the clean command with a closing double quote
+  echo $cleanVersion'"'
+  echo "\nRunning command on local environment..."
+  eval lando drush $cleanVersion'"'
+  echo "\nRunning command on Pantheon. Select DEV or cancel. \n"
+  eval trd $cleanVersion'"'
 }
 
 #* SSH Into Digital Ocean
@@ -173,12 +173,12 @@ alias sshdev='ssh root@$dev'
 #* Copy Digital Ocean Database into local db-dump folder
 
 devdbdump() {
-	scp root@$dev:/data/db-dumps/${1} $HOME/db-dumps/.
+  scp root@$dev:/data/db-dumps/${1} $HOME/db-dumps/.
 }
 
 # Composer require Drupal
 crd() {
-	for var in "$@"; do
-		composer require drupal/"$var"
-	done
+  for var in "$@"; do
+    composer require drupal/"$var"
+  done
 }
