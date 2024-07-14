@@ -34,11 +34,4 @@ return {
       use_default_keymaps = false,
     })
   end,
-  keys = {
-    {
-      "<leader>o",
-      "<cmd>Oil<cr>",
-      desc = "Oil Buffer",
-    },
-  },
 }
