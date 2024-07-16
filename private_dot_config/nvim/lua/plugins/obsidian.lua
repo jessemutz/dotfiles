@@ -32,6 +32,7 @@ return {
         ["~"] = { order = 4, char = "󰰱", hl_group = "ObsidianTilde" },
         ["!"] = { order = 5, char = "", hl_group = "ObsidianImportant" },
       },
+      -- bullets = { char = "•", hl_group = "ObsidianBullet" },
     },
 
     disable_frontmatter = true,
