@@ -17,6 +17,18 @@ alias aptup='sudo apt update && sudo apt upgrade'
 alias brewup='brew update && brew upgrade'
 export EDITOR=nvim
 
+# Better Trash
+rm() {
+  # Check if --help option is provided
+  if [[ "$1" == "-rf" || "$1" == "-f" ]]; then
+    echo "${YELBG} Note: ${NC} We don't use '${RED}rm -rf${NC}' anymore.\nInstead, use '${GRN}rm${NC}' since it's aliased to 'trash-put'"
+    return
+  fi
+
+  echo "Sending ${RED}$@${NC} to the trash...\n"
+  trash-put "$@"
+}
+
 #* Filesystem
 alias o='open .'
 alias ..='cd ../'
