@@ -8,7 +8,7 @@ return {
     opts = {
       linters = {
         markdownlint = {
-          args = { "--disable", { "MD012", "MD022", "MD032" }, "--" },
+          args = { "--disable", "MD012", "--" },
         },
       },
     },
