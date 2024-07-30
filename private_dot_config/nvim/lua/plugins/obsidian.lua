@@ -2,6 +2,7 @@ return {
   -- https://github.com/epwalsh/obsidian.nvim?tab=readme-ov-file#commands
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
+  modes = { "n", "no" },
   lazy = true,
   ft = "markdown",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -26,13 +27,13 @@ return {
 
     ui = {
       checkboxes = {
-        [" "] = { order = 1, char = "󰄱", hl_group = "ObsidianTodo" },
-        ["x"] = { order = 2, char = "", hl_group = "ObsidianDone" },
-        [">"] = { order = 3, char = "", hl_group = "ObsidianRightArrow" },
-        ["~"] = { order = 4, char = "󰰱", hl_group = "ObsidianTilde" },
-        ["!"] = { order = 5, char = "", hl_group = "ObsidianImportant" },
+        [" "] = { order = 1, hl_group = "ObsidianTodo" },
+        ["-"] = { order = 2, char = "󰡖 ", hl_group = "ObsidianTodo" },
+        ["x"] = { order = 3, hl_group = "ObsidianDone" },
+        [">"] = { order = 4, char = " ", hl_group = "ObsidianRightArrow" },
+        ["!"] = { order = 5, char = " ", hl_group = "ObsidianImportant" },
       },
-      -- bullets = { char = "•", hl_group = "ObsidianBullet" },
+      bullets = { char = "•", hl_group = "ObsidianBullet" },
     },
 
     disable_frontmatter = true,

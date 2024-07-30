@@ -17,8 +17,8 @@ local set_autoformat = function(pattern, bool_val)
   })
 end
 
-set_autoformat({ "md" }, false)
-set_autoformat({ "markdown" }, false)
+-- set_autoformat({ "md" }, false)
+-- set_autoformat({ "markdown" }, false)
 
 -- vim.cmd("set clipboard+=unnamedplus")
 -- vim.opt.clipboard:append({ "unnamed", "unnamedplus" })

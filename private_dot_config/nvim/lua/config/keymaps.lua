@@ -14,8 +14,9 @@ map("n", "<leader>OY", "<cmd>:ObsidianYesterday<CR>", { desc = "[O]bsidian: Crea
 map("n", "<leader>Ot", "<cmd>:ObsidianTemplate<CR>", { desc = "[O]bsidian: Insert [t]emplate" })
 map("n", "<leader>Ob", "<cmd>:ObsidianBacklinks<CR>", { desc = "[O]bsidian: Search all [b]acklinks in document" })
 map("n", "<leader>Ol", "<cmd>:ObsidianLinks<CR>", { desc = "[O]bsidian: Collect [l]inks into a picker" })
-map("n", "<leader>sO", "<cmd>:ObsidianSearch<CR>", { desc = "[s]earch [O]bsidian vault" })
+map("n", "<leader>sO", "<cmd>:ObsidianSearch<CR>", { desc = "[S]earch [O]bsidian vault" })
 map("n", "<leader>Os", "<cmd>:ObsidianSearch<CR>", { desc = "[O]bsidian: [s]earch vault" })
+map("n", "|", "<cmd>:ObsidianToggleCheckbox<CR>", { desc = "Toggle checkbox in Obsidian" })
 
 -- Oil
 map("n", "-", require("oil").open_float, { desc = "Open parent directory in Oil buffer" })
@@ -34,3 +35,7 @@ map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "[K]eywordprg" })
 
 -- Files & Find
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "[f]ile: [n]ew" })
+
+-- Code
+map("n", "<leader>cp", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown [p]review" })
+map("n", "<leader>cP", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown [P]review Stop" })

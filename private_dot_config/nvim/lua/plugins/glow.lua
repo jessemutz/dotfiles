@@ -1,12 +1,11 @@
 return {
   -- Glow Markdown Preview
-  {
-    "ellisonleao/glow.nvim",
-    init = function()
-      require("glow").setup({
-        border = "rounded",
-      })
-    end,
-    cmd = "Glow",
-  },
+  "ellisonleao/glow.nvim",
+  enabled = false,
+  init = function()
+    require("glow").setup({
+      border = "rounded",
+    })
+  end,
+  cmd = "Glow",
 }
