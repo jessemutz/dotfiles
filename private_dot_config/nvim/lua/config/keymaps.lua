@@ -36,6 +36,9 @@ map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "[K]eywordprg" })
 -- Files & Find
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "[f]ile: [n]ew" })
 
+-- Format Markdown Table
+map({ "n", "v" }, "<leader>ct", ":'<,'>!column -t -s '|' -o '|'<CR>", { desc = "format .md [t]able" })
+
 -- Code
 map("n", "<leader>cp", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown [p]review" })
 map("n", "<leader>cP", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown [P]review Stop" })
