@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="nvd"
+# ZSH_THEME="nvd"
 
 # ZSH_THEME="random"
 
@@ -150,13 +150,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(atuin init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.oh-my-zsh/posh-themes/atomic.omp.json)"
 
 # FZF Fuzzy Finder
 # https://github.com/junegunn/fzf
 # Set up keybindings and fuzzy completion
-source <(fzf --zsh)
+# source <(fzf --zsh)
 
 export FZF_DEFAULT_OPTS="-m --ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid,numbers --line-range :300 {}' \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -166,3 +165,5 @@ export FZF_DEFAULT_OPTS="-m --ansi --preview-window 'right:60%' --preview 'bat -
 # Lando
 export PATH="/Users/jesse/.lando/bin${PATH+:$PATH}"; #landopath
 
+. $HOME/.atuin/bin/env
+eval "$(atuin init zsh)"
