@@ -163,7 +163,7 @@ export FZF_DEFAULT_OPTS="-m --ansi --preview-window 'right:60%' --preview 'bat -
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # Lando
-export PATH="/Users/jesse/.lando/bin${PATH+:$PATH}"; #landopath
+export PATH="$HOME/.lando/bin${PATH+:$PATH}"; #landopath
 
 . $HOME/.atuin/bin/env
 eval "$(atuin init zsh)"

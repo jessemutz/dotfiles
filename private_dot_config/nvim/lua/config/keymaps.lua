@@ -40,5 +40,5 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "[f]ile: [n]ew" })
 map({ "n", "v" }, "<leader>ct", ":'<,'>!column -t -s '|' -o '|'<CR>", { desc = "format .md [t]able" })
 
 -- Code
-map("n", "<leader>cp", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown [p]review" })
-map("n", "<leader>cP", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown [P]review Stop" })
+map("n", "<leader>cp", "<cmd>MarkdownPreview<cr>", { desc = "Markdown [p]review" })
+map("n", "<leader>cP", "<cmd>MarkdownPreviewStop<cr>", { desc = "Markdown [P]review Stop" })
