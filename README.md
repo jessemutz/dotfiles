@@ -24,8 +24,7 @@ Below are tools and software needed to get a new machine up and running.
 - VSCode
 - Dropbox
 - Todoist
-- Joplin - Notes manager
-- Clickup
+- Obsidian
 - Google Chrome
 - FileZilla
 - Firefox
@@ -73,7 +72,8 @@ Below are tools and software needed to get a new machine up and running.
 - [update-alternatives](https://man7.org/linux/man-pages/man1/update-alternatives.1.html) - I use to switch PHP versions, but can also be used
   - e.g. `sudo update-alternatives --set php /usr/bin/php8.1`
 
-## Linux Commands
+
+# Linux Fresh Install
 
 Install various plugins
 
@@ -85,22 +85,74 @@ sudo apt clean
 sudo apt install git\
 screenfetch\
 plocate\
+tmux\
 youtube-dl\
 vim\
 software-properties-common\
 zsh
 ```
 
-PHP versions and version switcher
+### Install Gnome Tweaks
+Use the store.
+After installing, use the additional keyboard layouts to swap alt and ctrl, and use caps lock as another escape
+
+
+### Install Chezmoi
+```shell
+set GITHUB_USERNAME=jessemutz
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+```
+
+You'll likely have to replace chezmoi dir with your own. 
+
+```shell
+chezmoi cd \
+mv chezmoi chezmoi.old \
+git clone https://github.com/jessemutz/dotfiles chezmoi \
+chezmoi apply
+```
+
+### Install oh-my-posh and nerd fonts
+```shell
+curl -s https://ohmyposh.dev/install.sh | bash -s 
+oh-my-posh font install
+```
+I like "SpaceMono" and "JetBrains Mono"
+
+### Install Neovim
+
+```shell
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+```
+
+### Install LazyGit
+good for neovim
+
+```shell
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+```
+
+### ZSH stuff
+to install zsh-autosuggestions, use:
+```shell
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+### PHP Versions
 
 ```shell
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt upgrade
 sudo apt install php7.4
-sudo apt install php7.4-{fpm,json,zip,gd,mbstring,curl,xml,bcmath,dom}
+sudo apt install php7.4-{fpm,zip,gd,mbstring,curl,xml,bcmath}
 sudo apt install php8.1
-sudo apt install php8.1-{fpm,json,zip,gd,mbstring,curl,xml,bcmath,dom}
+sudo apt install php8.1-{fpm,zip,gd,mbstring,curl,xml,bcmath}
 ```
 
 Stop apache so we can use Lando
