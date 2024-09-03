@@ -11,7 +11,7 @@ return {
         preview_split = "right",
       },
       preview = {
-        min_width = 69,
+        min_width = 69, -- nice
       },
       keymaps = {
         ["g?"] = "actions.show_help",

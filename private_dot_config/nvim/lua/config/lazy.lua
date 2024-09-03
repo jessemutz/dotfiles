@@ -43,5 +43,4 @@ require("lazy").setup({
       },
     },
   },
-  vim.treesitter.stop(),
 })
