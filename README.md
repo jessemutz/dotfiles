@@ -40,6 +40,7 @@ Below are tools and software needed to get a new machine up and running.
 - [nvm (install via github)](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
   - after install, run `nvm install 14 && nvm install 16 && nvm install 18`
 - screenfetch
+- trash-cli (needed for the `rm` replacement found in `.zshrc`)
 - neovim
 - youtube-dl
 - zsh
