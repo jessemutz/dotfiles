@@ -36,6 +36,7 @@ Below are tools and software needed to get a new machine up and running.
 - chezmoi - manage and sync dotfiles
 - [atuin](https://atuin.sh/) (very cool shell history sync & search)
 - git
+- bat (/sharkdp/bat) - better `cat`
 - lando (for local Drupal & Wordpress site containers)
 - [nvm (install via github)](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
   - after install, run `nvm install 14 && nvm install 16 && nvm install 18`
