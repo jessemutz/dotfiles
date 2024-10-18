@@ -16,6 +16,8 @@ NC='\033[0m'        # No Color
 alias aptup='sudo apt update && sudo apt upgrade'
 alias brewup='brew update && brew upgrade'
 export EDITOR=nvim
+alias nvimks='NVIM_APPNAME="nvim-kickstart" nvim'
+alias nvimv='NVIM_APPNAME="nvim-vanilla" nvim'
 
 # Better Trash
 rm() {
