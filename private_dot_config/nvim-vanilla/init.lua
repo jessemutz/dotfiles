@@ -42,8 +42,8 @@ require("lazy").setup({
 
 -- local opts = {}
 
-require("keymaps")
 require("options")
+require("keymaps")
 require("autocmds")
 
 

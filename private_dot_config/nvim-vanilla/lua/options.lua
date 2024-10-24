@@ -33,6 +33,7 @@ vim.opt.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+-- vim.opt.incsearch = true -- default
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
