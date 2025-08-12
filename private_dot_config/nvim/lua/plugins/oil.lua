@@ -1,37 +1,16 @@
 return {
   "stevearc/oil.nvim",
-  opts = {},
+  ---@module 'oil'
+  ---@type oil.SetupOpts
+  opts = {
+    view_options = {
+      -- Show files and directories that start with "."
+      show_hidden = true,
+    },
+  },
   -- Optional dependencies
-  dependencies = { "echasnovski/mini.icons" },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-  init = function()
-    require("oil").setup({
-      delete_to_trash = true,
-      float = {
-        preview_split = "right",
-      },
-      preview = {
-        min_width = 69, -- nice
-      },
-      keymaps = {
-        ["g?"] = "actions.show_help",
-        ["<CR>"] = "actions.select",
-        ["<C-v>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
-        ["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
-        ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
-        ["<C-p>"] = "actions.preview",
-        ["<C-c>"] = "actions.close",
-        ["<C-l>"] = "actions.refresh",
-        ["-"] = "actions.parent",
-        ["_"] = "actions.open_cwd",
-        ["`"] = "actions.cd",
-        ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
-        ["gs"] = "actions.change_sort",
-        ["gx"] = "actions.open_external",
-        ["g."] = "actions.toggle_hidden",
-        ["g\\"] = "actions.toggle_trash",
-      },
-      use_default_keymaps = false,
-    })
-  end,
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  lazy = false,
 }

@@ -19,20 +19,13 @@ return {
   opts = {
     workspaces = {
       {
-        name = "personal",
-        path = "~/Dropbox/Apps/Obsidian/Personal Vault",
+        name = "DW Obsidian Vault",
+        path = "~/Documents/DW Obsidian Vault/",
       },
     },
 
     ui = {
-      checkboxes = {
-        [" "] = { order = 1, hl_group = "ObsidianTodo" },
-        ["-"] = { order = 2, char = "󰡖 ", hl_group = "ObsidianTodo" },
-        ["x"] = { order = 3, hl_group = "ObsidianDone" },
-        [">"] = { order = 4, char = " ", hl_group = "ObsidianRightArrow" },
-        ["!"] = { order = 5, char = " ", hl_group = "ObsidianImportant" },
-      },
-      bullets = { char = "•", hl_group = "ObsidianBullet" },
+      enable = false,
     },
 
     disable_frontmatter = true,
@@ -40,11 +33,11 @@ return {
     -- Daily Note
     daily_notes = {
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = "Daily Note Template.md",
+      template = "Template - DSU.md",
     },
     -- Specify template directory
     templates = {
-      folder = "9 - etc/Note Templates",
+      folder = "9 - etc/Templates",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
       -- A map for custom variables, the key should be the variable and the value a function

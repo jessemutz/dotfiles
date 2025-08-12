@@ -18,6 +18,7 @@ alias brewup='brew update && brew upgrade'
 export EDITOR=nvim
 alias nvimks='NVIM_APPNAME="nvim-kickstart" nvim'
 alias nvimv='NVIM_APPNAME="nvim-vanilla" nvim'
+alias nvimlazy='NVIM_APPNAME="nvim-lazy" nvim'
 
 # Better Trash
 rm() {
@@ -46,9 +47,7 @@ e() {
 }
 
 # Color LS tool instead of regular ls
-alias ls='colorls'
-alias la='colorls -la'
-alias ll='colorls -l'
+alias ls='lsd'
 
 #* Shortkeys for different services and tools
 alias l='lando'
